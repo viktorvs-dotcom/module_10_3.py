@@ -12,7 +12,7 @@ class Bank(Thread):
         self.lock = Lock()
 
     def deposit(self):
-        for i in range(5):
+        for i in range(100):
             with self.lock:
                 cash = randint(50, 500)
                 self.balance += cash
@@ -21,7 +21,7 @@ class Bank(Thread):
                 sleep(0.001)
 
     def take(self):
-        for i in range(100): 
+        for i in range(5):# по условиям - 100 в наличии - 5
             with self.lock:
                 cash = randint(50, 500)
                 print(f"Запрос на снятие {cash}")
